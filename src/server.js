@@ -1,22 +1,17 @@
 //importand a biblioteca express
 const express = require ('express');
-
 //chamando mongoose, que é uma biblioteca para que possamos usar javascript ao invés da linguagem do banco para fazer o necessário
 const mongoose = require ('mongoose');
-
 const path = require ('path');
-
-const server = require('http').Server(app);
-
-const io = require('socket.io')(server);
-
 const cors = require('cors');
-
-
-app.user(cors());
 
 //usando a biblioteca em uma variavel
 const app = express();
+
+app.use(cors());
+
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 //web socket, para subir arquivos e mostraram em varios dispositvos diferentes in real time
 io.on("connection", socket =>{
