@@ -15,9 +15,9 @@ const io = require('socket.io')(server);
 
 //web socket, para subir arquivos e mostraram em varios dispositvos diferentes in real time
 io.on("connection", socket =>{
-    socket.on ('connectRoom', box =>{
+    socket.on ('connectRoom', box => {
         socket.join(box);
-    })
+    });
 });
 
 //conectando banco de dados mongodb
@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-u675i.mongodb.net/o
 }
 );
 //usando o socket em todas as URL's
-app.use((req, res, next)=>{
+app.use((req, res, next) => { 
     req.io = io;
 
     return next();
