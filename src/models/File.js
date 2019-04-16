@@ -14,12 +14,12 @@ const File = new mongoose.Schema(
         },  
         {
             timestamps: true, //armazena a data de criacao e edicao de um registro
-            toObject: {virtual:true},
-            toJSON: {virtual:true}
+            toObject: { virtual:true },
+            toJSON: { virtual:true }
         }
 );
 
-File.virtual('url').get(function(){
+File.virtual("url").get(function(){
     const url = process.env.URL || 'http://localhost:3333/';
     return `http://localhost:3333/files/${encodeURIComponent(this.path)}`;
 });

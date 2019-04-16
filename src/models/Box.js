@@ -7,8 +7,7 @@ const Box = new mongoose.Schema(
         type: String,
         required: true
     },
-    files:[
-        {type: mongoose.Schema.Types.ObjectId, ref:"File"}]
+    files: [{type: mongoose.Schema.Types.ObjectId, ref:"File"}]
     },
     {
     timestamps: true //armazena a data de criacao e edicao de um registro
