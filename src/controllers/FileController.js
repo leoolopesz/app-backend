@@ -1,5 +1,5 @@
 const Box = require ('../models/Box');
-const File = require ('../models/file');
+const File = require ('../models/File');
 
 class FileController {
     async store (req, res){
@@ -10,7 +10,7 @@ class FileController {
            path: req.file.key,
        });
 
-       box.file.push(file);
+       box.files.push(file);
 
        await box.save();
 
