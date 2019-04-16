@@ -5,7 +5,7 @@ const Box = new mongoose.Schema(
 // registro é obrigatório(require:true) ter um titulo do tipo(type) String 
     title: {
         type: String,
-        required: true,
+        required: true
     },
     files:[
         {type: mongoose.Schema.Types.ObjectId, ref:"File"}]
