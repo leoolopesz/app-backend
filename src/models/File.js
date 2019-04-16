@@ -7,20 +7,21 @@ const File = new mongoose.Schema(
             type: String,
             required: true
         },
-        path:{
+
+        path: {
             type:String,
             required:true
             }
-        },  
+        },
         {
             timestamps: true, //armazena a data de criacao e edicao de um registro
-            toObject: { virtual:true },
-            toJSON: { virtual:true }
+            toObject: { virtuals: true },
+            toJSON: { virtuals: true }
         }
 );
 
-File.virtual("url").get(function(){
-    const url = process.env.URL || 'http://localhost:3333/';
+File.virtual('url').get(function(){
+   const url = process.env.URL || 'http://localhost:3333/';
     return `http://localhost:3333/files/${encodeURIComponent(this.path)}`;
 });
 
